@@ -21,7 +21,7 @@
             }
           ]
         },
-        "BlockDeviceMappings" : [ { "DeviceName" : "/dev/sdb", "VirtualName" : "ephemeral0" } ],
+        "BlockDeviceMappings" : [ { "DeviceName" : "/dev/xvda", "Ebs" : { "VolumeSize": 150, "VolumeType": "gp2", "DeleteOnTermination": true} } ],
         "SecurityGroups" : [ { "Ref" : "PrivateAgentSecurityGroup" } ],
         "IamInstanceProfile" : { "Ref" : "PrivateAgentInstanceProfile" },
         "AssociatePublicIpAddress" : "false",
