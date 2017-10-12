@@ -531,7 +531,22 @@
       "Properties" : {
         "KeyName" : { "Ref" : "KeyName" },
         "ImageId" : { "Fn::FindInMap" : [ "RegionToAmi", { "Ref" : "AWS::Region" }, "stable" ] },
-        "BlockDeviceMappings" : [ { "DeviceName" : "/dev/xvda", "Ebs" : { "VolumeSize": 150, "VolumeType": "gp2", "DeleteOnTermination": true} } ],
+        "BlockDeviceMappings" : [{
+          "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 50,
+              "VolumeType": "gp2"
+          },
+          "DeviceName": "/dev/xvda"
+      },
+      {
+          "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 100,
+              "VolumeType": "gp2"
+          },
+          "DeviceName": "/dev/xvdb"
+      } ],
         "SecurityGroups" : [ { "Ref" : "MasterSecurityGroup" }, { "Ref" : "AdminSecurityGroup" } ],
         "IamInstanceProfile" : { "Ref" : "MasterInstanceProfile" },
         "AssociatePublicIpAddress" : "true",
@@ -715,7 +730,22 @@
       "Properties" : {
         "KeyName" : { "Ref" : "KeyName" },
         "ImageId" : { "Fn::FindInMap" : [ "RegionToAmi", { "Ref" : "AWS::Region" }, "stable" ] },
-        "BlockDeviceMappings" : [ { "DeviceName" : "/dev/xvda", "Ebs" : { "VolumeSize": 150, "VolumeType": "gp2", "DeleteOnTermination": true} } ],
+        "BlockDeviceMappings" : [ {
+          "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 50,
+              "VolumeType": "gp2"
+          },
+          "DeviceName": "/dev/xvda"
+      },
+      {
+          "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 100,
+              "VolumeType": "gp2"
+          },
+          "DeviceName": "/dev/xvdb"
+      } ],
         "SecurityGroups" : [ { "Ref" : "SlaveSecurityGroup" } ],
         "IamInstanceProfile" : { "Ref" : "SlaveInstanceProfile" },
         "EbsOptimized": "true",
@@ -758,7 +788,22 @@
       "Properties" : {
         "KeyName" : { "Ref" : "KeyName" },
         "ImageId" : { "Fn::FindInMap" : [ "RegionToAmi", { "Ref" : "AWS::Region" }, "stable" ] },
-        "BlockDeviceMappings" : [ { "DeviceName" : "/dev/xvda", "Ebs" : { "VolumeSize": 150, "VolumeType": "gp2", "DeleteOnTermination": true} } ],
+        "BlockDeviceMappings" : [ {
+          "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 50,
+              "VolumeType": "gp2"
+          },
+          "DeviceName": "/dev/xvda"
+      },
+      {
+          "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 100,
+              "VolumeType": "gp2"
+          },
+          "DeviceName": "/dev/xvdb"
+      }],
         "SecurityGroups" : [ { "Ref" : "PublicSlaveSecurityGroup" } ],
         "IamInstanceProfile" : { "Ref" : "SlaveInstanceProfile" },
         "AssociatePublicIpAddress" : "true",
